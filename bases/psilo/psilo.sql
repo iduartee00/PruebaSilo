@@ -1,3 +1,7 @@
+--Checa bien la presentación de las vistas que nos
+--mandaron recientemente para que te des una idea
+--de cómo empezar a hacer las vistas
+
 CREATE DATABASE psilo;
 USE psilo;
 
@@ -21,6 +25,8 @@ CREATE TABLE Marca (
 	marca_nom VARCHAR(20) NOT NULL
 );
 
+--De esta entidad no se genera una vista a parte,
+--es parte de la vista de Artículo.
 CREATE TABLE TipoArt (
 	tpart_id INT IDENTITY
 		PRIMARY KEY,
