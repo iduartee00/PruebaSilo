@@ -1,0 +1,18 @@
+﻿@model Proveedor
+@{
+    ViewData["Title"] = "Silo Comunicaciones - Gestión Web";
+}
+
+<h2>Editar Proveedor: </h2> <h3>@Model.ProveedorId</h3>
+
+<form method="POST">
+    <div class="form-group">
+        <label asp-for="VcProvName" class="form-control">Nombre del Proveedor:</label>
+        <input type="text" asp-for="VcProvName" value="@Model.VcProvName">
+    </div>
+    <div class="form-group">
+        <label asp-for="VcProvDesc" class="form-control">Descripción:</label>
+        <input type="text" asp-for="VcProvDesc" value="@Model.VcProvDesc">
+    </div>
+    <input type="submit" value="Guardar"/>
+</form>

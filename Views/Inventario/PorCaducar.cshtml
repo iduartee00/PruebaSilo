@@ -1,0 +1,32 @@
+﻿@model List<Inventario>
+@{
+    ViewData["Title"] = "Silo Comunicaciones - Gestión Web";
+}
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Dispositivo</th>
+            <th scope="col">Fecha de baja</th>
+            <th scope="col">Eliminar</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var inventario in @Model)
+        {
+            <tr>
+                <th scope="row">@inventario.InventarioId</th>
+                <td>@ViewBag.Context.Productos.Find(inventario.InformId).VcProdName</td>
+                <td>@inventario.DtCaducidad</td>
+                <td>
+                    <div>
+                        <a href="~/../Inventario/Eliminar/@inventario.InventarioId">Eliminar del Inlendingrio</a>
+                    </div>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,42 @@
+﻿@model List<ReporteInv>
+@{
+    ViewData["Title"] = "Silo Comunicaciones - Gestión Web";
+}
+
+<h2>Reportes de Préstamos</h2>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">RFC del empleado</th>
+            <th scope="col">Nombre del empleado</th>
+            <th scope="col">Elemto</th>
+            <th scope="col">Tipo</th>
+            <!--<th scope="col">Producto</th>
+            <th scope="col">Cliente</th> -->
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var reporte in @Model)
+        {
+            <tr>
+                <th scope="row">@reporte.LendId</th>
+                <td>@reporte.VcEmpsRfc</td>
+                <td>@reporte.VcEmpsNombre</td>
+                <!-- No son los dos siguientes -->
+                <td>@reporte.VcBrandName</td>
+                <td>@reporte.VcProvName</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <h3>Fecha y hora del prestamo: @Model[0].DtLend</h3>
+</div>
+<div>
+    <a href="~/../Venta/GenerarReportes/@Model[0].LendId">Crear reportes PDF y XML</a>
+</div>

@@ -1,0 +1,26 @@
+﻿@model Informatico
+@{
+    ViewData["Title"] = "Silo Comunicaciones - Gestión Web";
+}
+
+<h2>Agregar nuevo elemento Informático</h2>
+
+<form method="POST">
+    <div class="form-group">
+        <label asp-for="InformTipId" class="form-control">Tipo de Producto:</label>
+        @Html.DropDownList("InformTipId", new SelectList(@ViewBag.InformTips, "Text", "Value"))
+    </div>
+    <div class="form-group">
+        <label asp-for="InformDesc" class="form-control">Descripción:</label>
+        <input type="text" asp-for="InformDesc">
+    </div>
+    <div class="form-group">
+        <label asp-for="ProveedorId" class="form-control">Elige un Proveedor:</label>
+        @Html.DropDownList("ProveedorId", new SelectList(@ViewBag.Proveedores, "Text", "Value"))
+    </div>
+    <div class="form-group">
+        <label asp-for="BrandId" class="form-control">Elige una Brands:</label>
+        @Html.DropDownList("BrandId", new SelectList(@ViewBag.Marcas, "Text", "Value"))
+    </div>
+    <input type="submit" value="Guardar"/>
+</form>

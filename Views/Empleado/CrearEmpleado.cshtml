@@ -1,0 +1,23 @@
+﻿@model Empleados
+@{
+    ViewData["Title"] = "Silo Comunicaciones - Gestión Web";
+}
+
+<h2>Nuevo empleado</h2>
+
+<form method="POST">
+    <div class="form-group">
+        <label asp-for="VcEmpsRfc" class="form-control">RFC:</label>
+        <input type="text" asp-for="VcEmpsRfc">
+    </div>
+    <div class="form-group">
+        <label asp-for="VcEmpsNombre" class="form-control">Nombre:</label>
+        <input type="text" asp-for="VcEmpsNombre">
+    </div>
+    <div class="form-group">
+        <label asp-for="VcEmpsApellido" class="form-control">Apellido:</label>
+        <input type="text" asp-for="VcEmpsApellido">
+    </div>
+    
+    <input type="submit" value="Guardar"/>
+</form>

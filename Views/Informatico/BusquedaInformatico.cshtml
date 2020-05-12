@@ -1,0 +1,42 @@
+﻿@model Informatico
+@{
+    ViewData["Title"] = "Silo Comunicaciones - Gestión Web";
+}
+
+
+@if (@Model.ProveedorId == 0)
+{
+    <h2>El producto que desea buscar no existe!</h2>
+}
+else
+{
+    <h2>Buscar "@Model.InformDesc"</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Producto</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Brands</th>
+                    <th scope="col">Proveedor</th>
+                <!-- 
+                Falta agregar el atributo Cantidad
+                    <th scope="col">Cantidad</th>
+                -->
+                    <th scope="col">Estado</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">@Model.InformId</th>
+                    <td>@Model.InformDesc</td>
+                    <td>@ViewBag.Context.InformTips.Find(@ViewBag.Context.Productos.Find(@Model.InformId).InformTipId).VcInformNom</td>
+                    <td>@ViewBag.Context.Marcas.Find(@ViewBag.Context.Productos.Find(@Model.InformId).MarcaId).VcMarcaName</td>
+                    <t>@ViewBag.Context.Proveedores.Find(@ViewBag.Context.Productos.Find(@Model.InformId).ProveedorId).VcProvName</t>
+                    <td>@Model.VcInforStatus</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    }

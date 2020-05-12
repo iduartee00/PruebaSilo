@@ -1,0 +1,43 @@
+﻿@model List<Lending>
+@{
+    ViewData["Title"] = "Silo Comunicaciones - Gestión Web";
+}
+
+<h2>Lista de Préstamos</h2>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Fecha y Hora</th>
+            <th scope="col">Cantidad de Elementos</th>
+            <th scope="col">RFC Empleado</th>
+            <th scope="col">Reporte</th>
+            <th scope="col">Agregar</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var lending in @Model)
+        {
+            <tr>
+                <th scope="row">@lending.LendId</th>
+                <td>@lending.DtLend</td>
+                <td>@lending.LendCant</td>
+                <!-- Obtener datos de una tabla diferente de la usada en el Modelo -->
+                <td>@ViewBag.Context.Empleados.Find(lending.LendCant).VcEmpsRfc</td>
+                <td><div>
+                    <a href="~/../Lending/Lending/@lending.LendId">Detalles</a>
+                </div></td>
+                <td><div>
+                    <a href="~/../Lending/AgregarInformatico/@lending.LendId">Agregar informático</a>
+                </div></td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <a href="~/../Lending/NuevaLending">Nuevo préstamo</a>
+</div>

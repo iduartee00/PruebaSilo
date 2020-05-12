@@ -1,0 +1,39 @@
+﻿//<!--Aqui si se debe respetar los caracteres de como se haya creado la tabla a utilizar aqui-->
+@model List<Inventario>
+@{
+    ViewData["Title"] = "Silo Comunicaciones - Gestión Web";
+}
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Elemento</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Fecha de registro</th>
+            <th scope="col">Cantidad disponible</th>
+        </tr>
+        </thead>
+        <tbody>
+            <!--No importa si se haya declarado model como se haya declarado -->
+            <!-- Se esta creando en este caso la variable inlendingrio enlazando el model -->
+            @foreach (var inventario in @Model)
+            {
+                <tr>
+                    <!--En esta parte se usa arroba variable.tabla a usar-->
+                    <th scope="row">@inventario.InventarioId</th>
+                    <!--En este caso se utiliza esta parte para manejar claves foraneas-->
+                    <td>@ViewBag.Context.Informaticos.Find(inventario.InformId).InformDesc</td>
+                    <td>@ViewBag.Context.Informaticos.Find(inventario.InformId).InformTipId</td>
+                    <td>@inventario.DtIngreso</td>
+                    <td>@inventario.InvQuant</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <a href="~/../Inventario/Agregar">Agregar al inlendingrio</a>
+</div>

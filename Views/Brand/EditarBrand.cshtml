@@ -1,0 +1,18 @@
+﻿@model Brands
+@{
+    ViewData["Title"] = "Silo Comunicaciones - Gestión Web";
+}
+
+<h2>Edición de la marca con ID: </h2> <h3>@Model.BrandId</h3>
+
+<form method="POST">
+    <div class="form-group">
+        <label asp-for="VcBrandName" class="form-control">Nombre de la Marca:</label>
+        <input type="text" asp-for="VcBrandName" value="@Model.VcBrandName">
+    </div>
+    <div class="form-group">
+        <label asp-for="VcBrandDesc" class="form-control">Descripción</label>
+        <input type="text" asp-for="VcBrandDesc" value="@Model.VcBrandDesc">
+    </div>
+    <input type="submit" value="Guardar"/>
+</form>

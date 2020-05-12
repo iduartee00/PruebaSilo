@@ -1,0 +1,19 @@
+﻿@model RelLendInvent
+
+@{
+    ViewData["Title"] = "Silo Comunicaciones - Gestión Web";
+}
+
+<h2>Realizar un nuevo préstamo con orden: </h2> <h3>@ViewBag.LendId</h3>
+
+<form method="POST">
+    <div class="form-group">
+        <label asp-for="InventarioId" class="form-control">Seleccione un producto:</label>
+        @Html.DropDownList("InventarioId",new SelectList(ViewBag.Informaticos,"Text","Value"))
+    </div>
+    <div class="form-group">
+        <label asp-for="LendId" class="form-control">Cantidad a préstamo:</label>
+        <input type="text" asp-for="InventarioId" value="@ViewBag.VentaId">
+    </div>
+    <input type="submit" value="Guardar"/>
+</form>

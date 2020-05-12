@@ -1,0 +1,22 @@
+﻿@model Inventario
+@{
+    ViewData["Title"] = "Silo Comunicaciones - Gestión Web";
+}
+
+<h2>Alta de inlendingrio</h2>
+
+<form method="POST">
+    <div class="form-group">
+        <label asp-for="InformId" class="form-control">Elemento Informático:</label>
+        @Html.DropDownList("InformId", new SelectList(@ViewBag.Informaticos, "Text", "Value"))
+    </div>
+    <div class="form-group">
+        <label asp-for="DtIngreso" class="form-control">Fecha de ingreso:</label>
+        <input type="date" asp-for="DtIngreso">
+    </div>
+    <div class="form-group">
+        <label asp-for="InvQuant" class="form-control">Cantidad a ingresar:</label>
+        <input type="date" asp-for="InvQuant">
+    </div>
+    <input type="submit" value="Guardar" />
+</form>
