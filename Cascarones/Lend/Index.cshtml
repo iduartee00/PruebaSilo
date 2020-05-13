@@ -1,0 +1,39 @@
+@{
+    ViewData["Title"] = "Historial de prestamos - Silo Comunicaciones";
+}
+
+<h2>Historial de prestamos de material</h2>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">ID Prestamo</th>
+                <th scope="col">Dispositivo</th>
+                <th scope="col">Marca</th>
+                <th scope="col">Cantidad req.</th>
+                <th scope="col">ID Empleado</th>
+                <th scope="col">Empresa destino</th>
+                <th scope="col">Estado de solicitud</th>
+                <th scope="col">Fecha y hora de act.</th>
+            </tr>
+        </thead>
+        <!--
+    <tbody>
+        //foreach (var brand in Model)
+        {
+            <tr>
+                <th scope="row">brand.BrandId</th>
+                <td>brand.VcBrandName</td>
+                <td>brand.VcBrandDesc</td>
+                <td><a href="~/../Marca/EditarMarca/brand.BrandId">Editar</a></td>
+                <td><a href="~/../Marca/BorrarMarca/brand.BrandId">Eliminar</a></td>
+            </tr>
+        }
+    </tbody>-->
+    </table>
+</div>
+
+<div>
+    <a href="~/../Lend/NewLendRequest">Nueva solicitud de prestamo</a>
+</div>

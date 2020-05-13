@@ -1,0 +1,39 @@
+@{
+    ViewData["Title"] = "Nueva solicitud de prestamo - Silo Comunicaciones";
+}
+
+<h2>Nueva solicitud de prestamo No. {inserta ID de prestamo aqui}</h2>
+
+<form method="POST">
+    <div class="form-group">
+        <!--asp-for="VcBrandName"  \/-->
+        <label class="form-control">Dispositivo</label>
+        <!--asp-for="VcBrandName"-->
+        <select class="form-control" id="Device" name="Device"></select>
+    </div>
+    <div class="form-group">
+        <!--asp-for="VcBrandName"  \/-->
+        <label class="form-control">Marca</label>
+        <!--asp-for="VcBrandName"-->
+        <select class="form-control" id="Brand" name="Brand"></select>
+    </div>
+    <div class="form-group">
+        <label class="form-control">Cantidad requerida</label>
+        <input class="form-control" type="number" min="1" max="6" />
+
+    </div>
+    <div class="form-group">
+        <!--asp-for="VcBrandName"  \/-->
+        <label class="form-control">Nombre del empleado quien solicita</label>
+        <!--asp-for="VcBrandName"-->
+        <select class="form-control" id="EmpName" name="EmpName"></select>
+    </div>
+    <div class="form-group">
+        <!--asp-for="VcBrandName"  \/-->
+        <label class="form-control">Empresa a donde va a estar el dispositivo</label>
+        <!--asp-for="VcBrandName"-->
+        <select class="form-control" id="EntDev" name="EntDev"></select>
+    </div>
+
+    <input type="submit" class="form-group" value="Enviar solicitud" />
+</form>

@@ -1,0 +1,42 @@
+@{
+    ViewData["Title"] = "Nuevo dispositivo - Silo Comunicaciones";
+}
+
+<h2>Agregar nuevo dispositivo No. {inserta ID de dispositivo nuevo aqui}</h2>
+
+<form method="POST">
+    <div class="form-group">
+        <!--asp-for="VcBrandName"  \/-->
+        <label class="form-control">Dispositivo</label>
+        <!--asp-for="VcBrandName"-->
+        <input type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+        <!--asp-for="VcBrandName"  \/-->
+        <label class="form-control">Marca</label>
+        <!--asp-for="VcBrandName"-->
+        <input type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label class="form-control">Modelo</label>
+        <input type="text" class="form-control"/>
+    </div>
+    <div class="form-group">
+        <!--asp-for="VcBrandName"  \/-->
+        <label class="form-control">Descripción</label>
+        <!--asp-for="VcBrandName"-->
+        <input type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label class="form-control">Fecha de ingreso</label>
+        <input type="date" class="form-control"/>
+    </div>
+    <div class="form-group">
+        <!--asp-for="VcBrandName"  \/-->
+        <label class="form-control">Cantidad</label>
+        <!--asp-for="VcBrandName"-->
+        <input class="form-control" type="number" min="1" max="999" />
+    </div>
+
+    <input type="submit" class="form-group" value="Guardar" />
+</form>
