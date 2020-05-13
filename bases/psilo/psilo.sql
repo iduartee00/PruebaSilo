@@ -5,18 +5,20 @@
 CREATE DATABASE psilo;
 USE psilo;
 
-CREATE TABLE Usuario (
-	us_id INT IDENTITY 
-		PRIMARY KEY,
-	us_nom VARCHAR(15) NOT NULL,
-	us_contr VARCHAR(15) NOT NULL
-);
-
 CREATE TABLE Empleado (
 	emp_id INT IDENTITY
 		PRIMARY KEY,
 	emp_nom VARCHAR(20) NOT NULL,
 	emp_app	VARCHAR(20) NOT NULL
+);
+
+CREATE TABLE Usuario (
+	us_id INT IDENTITY 
+		PRIMARY KEY,
+	us_nom VARCHAR(15) NOT NULL,
+	emp_id INT NOT NULL
+		REFERENCES Empleado,
+	us_contr VARCHAR(15) NOT NULL
 );
 
 CREATE TABLE Marca (
@@ -31,7 +33,7 @@ CREATE TABLE TipoArt (
 	tpart_id INT IDENTITY
 		PRIMARY KEY,
 	tpart_nom VARCHAR(11) NOT NULL
-)
+);
 
 CREATE TABLE Articulo (
 	art_id INT IDENTITY
@@ -54,7 +56,7 @@ CREATE TABLE Empresa (
 	empr_col VARCHAR(29) NOT NULL,
 	empr_estado VARCHAR(20),
 	empr_ciu VARCHAR(20),
-	empr_cp VARCHAR(8),
+	empr_cp VARCHAR(8)
 );
 
 CREATE TABLE Inventario (
@@ -62,12 +64,53 @@ CREATE TABLE Inventario (
 		PRIMARY KEY,
 	art_id INT NOT NULL
 		REFERENCES Articulo,
-	art_cant INT NOT NULL
+	art_cant INT NOT NULL,
+	inv_sts VARCHAR(2) NOT NULL
 );
 
 CREATE TABLE Prestamo (
 	prst_id INT IDENTITY
 		PRIMARY KEY,
+	emp_id INT NOT NULL
+		REFERENCES Empleado,
 	prst_cant INT NOT NULL,
 	prst_fch DATETIME NOT NULL
 );
+
+CREATE TABLE RelPrstInv (
+	relip_id INT IDENTITY
+		PRIMARY KEY,
+	prst_id INT NOT NULL
+		REFERENCES Prestamo,
+	inv_id INT NOT NULL
+		REFERENCES Inventario
+);
+
+CREATE TABLE RelEmprUs (
+	releu_id INT IDENTITY
+		PRIMARY KEY,
+	empr_id INT NOT NULL
+		REFERENCES Empleado,
+	us_id INT NOT NULL
+		REFERENCES Usuarios
+)
+GO
+
+CREATE PROCEDURE ActzaInv
+	@PrstId INT 
+	,@Proceso INT
+AS	
+BEGIN
+	
+	SET NOCOUNT ON;
+END
+GO
+
+CREATE PROCEDURE ElbRepte
+	@PrstId INT
+AS
+BEGIN
+	
+	SET NOCOUNT ON;
+END
+GO
