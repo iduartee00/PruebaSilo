@@ -1,7 +1,6 @@
 --Checa bien la presentación de las vistas que nos
 --mandaron recientemente para que te des una idea
 --de cómo empezar a hacer las vistas
-
 CREATE DATABASE psilo;
 USE psilo;
 
@@ -90,9 +89,9 @@ CREATE TABLE RelEmprUs (
 	releu_id INT IDENTITY
 		PRIMARY KEY,
 	empr_id INT NOT NULL
-		REFERENCES Empleado,
-	us_id INT NOT NULL
-		REFERENCES Usuarios
+		REFERENCES Empresa,
+	emp_id INT NOT NULL
+		REFERENCES Empleado
 )
 GO
 
