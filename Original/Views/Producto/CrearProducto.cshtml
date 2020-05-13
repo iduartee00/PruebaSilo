@@ -1,0 +1,35 @@
+﻿@model Producto
+
+@{
+    ViewData["Title"] = "Proyecto de BD 'Tienda'";
+}
+
+<h2>Inserción de producto</h2>
+
+<form method="POST">
+    <div class="form-group">
+        <label asp-for="VcProdName" class="form-control">Nombre del Producto</label>
+        <input type="text" asp-for="VcProdName">
+    </div>
+    <div class="form-group">
+        <label asp-for="ProveedorId" class="form-control">Seleccione un Proveedor</label>
+        @Html.DropDownList("ProveedorId",new SelectList(@ViewBag.Proveedores,"Text","Value"))
+    </div>
+    <div class="form-group">
+        <label asp-for="MarcaId" class="form-control">Seleccione una Marca</label>
+        @Html.DropDownList("MarcaId",new SelectList(@ViewBag.Marcas,"Text","Value"))
+    </div>
+    <div class="form-group">
+        <label asp-for="FlUnitAmount" class="form-control">Precio unitario</label>
+        <input type="text" asp-for="FlUnitAmount">
+    </div>
+    <div class="form-group">
+        <label asp-for="FlLoteAmount" class="form-control">Precio mayoreo</label>
+        <input type="text" asp-for="FlLoteAmount">
+    </div>
+    <div class="form-group">
+        <label asp-for="IntCantLote" class="form-control">Unidades para mayoreo</label>
+        <input type="text" asp-for="IntCantLote">
+    </div>
+    <input type="submit"/>
+</form>

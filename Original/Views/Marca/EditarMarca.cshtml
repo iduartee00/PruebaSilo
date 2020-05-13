@@ -1,0 +1,19 @@
+﻿@model Marca
+
+@{
+    ViewData["Title"] = "Proyecto de BD 'Tienda'";
+}
+
+<h2>Edición de la marca @Model.MarcaId</h2>
+
+<form method="POST">
+    <div class="form-group">
+        <label asp-for="VcMarcaName" class="form-control">Nombre de la Marca</label>
+        <input type="text" asp-for="VcMarcaName" value="@Model.VcMarcaName">
+    </div>
+    <div class="form-group">
+        <label asp-for="VcMarcaStatus" class="form-control">Estatus</label>
+        <input type="text" asp-for="VcMarcaStatus" value="@Model.VcMarcaStatus">
+    </div>
+    <input type="submit"/>
+</form>

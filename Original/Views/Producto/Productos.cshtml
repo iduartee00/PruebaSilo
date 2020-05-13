@@ -1,0 +1,46 @@
+﻿@model List<Producto>
+@{
+    ViewData["Title"] = "Proyecto de BD 'Tienda'";
+}
+
+<h2>Productos</h2>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre del Producto</th>
+            <th scope="col">Marca</th>
+            <th scope="col">Proveedor</th>
+            <th scope="col">Precio unitario</th>
+            <th scope="col">Cantidad mayoreo</th>
+            <th scope="col">Precio mayoreo</th>
+            <th scope="col">Estatus</th>
+            <th scope="col">Editar</th>
+            <th scope="col">Eliminar</th>
+            
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var producto in @Model)
+        {
+            <tr>
+                <th scope="row">@producto.ProductoId</th>
+                <td>@producto.VcProdName</td>
+                <td>@ViewBag.Context.Marcas.Find(@ViewBag.Context.Productos.Find(@producto.ProductoId).MarcaId).VcMarcaName</td>
+                <td>@ViewBag.Context.Proveedores.Find(@ViewBag.Context.Productos.Find(@producto.ProductoId).ProveedorId).VcProvName</td>
+                <td>@producto.FlUnitAmount</td>
+                <td>@producto.IntCantLote</td>
+                <td>@producto.FlLoteAmount</td>
+                <td>@producto.VcProdStatus</td>
+                <td><a href="~/../Producto/EditarProducto/@producto.ProductoId">Editar</a></td>
+                <td><a href="~/../Producto/BorrarProducto/@producto.ProductoId">Eliminar</a></td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <a href="~/../Producto/CrearProducto/">Crear nuevo Producto</a>
+</div>

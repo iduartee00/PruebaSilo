@@ -1,0 +1,43 @@
+﻿@model List<Usuario>
+@{
+    ViewData["Title"] = "Proyecto de BD 'Tienda'";
+    string pass = "";
+}
+
+<h2>Proveedores</h2>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">RFC</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Password Decifrada</th>
+            <th scope="col">Password Cifrada</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var usuario in @Model)
+        {
+            @foreach (var dato in usuario.Password)
+            {
+                pass += dato.ToString();
+            }
+            <tr>
+                <th scope="row">@usuario.UsuarioId</th>
+                <td>@usuario.VcUsrRfc</td>
+                <td>@usuario.VcUsrNombre</td>
+                <td>@usuario.VcUsrApellido</td>
+                <td>@usuario.passToString(@ViewBag.Context)</td>
+                <td>@pass</td>
+            </tr>
+            pass = "";
+        }
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <a href="~/../Usuario/CrearUsuario/">Crear nuevo Usuario</a>
+</div>

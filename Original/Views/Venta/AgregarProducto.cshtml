@@ -1,0 +1,19 @@
+﻿@model RelVentaProductos
+
+@{
+    ViewData["Title"] = "Proyecto de BD 'Tienda'";
+}
+
+<h2>Agregar producto a la venta @ViewBag.VentaId</h2>
+
+<form method="POST">
+    <div class="form-group">
+        <label asp-for="InventarioId" class="form-control">Cliente</label>
+        @Html.DropDownList("InventarioId",new SelectList(ViewBag.Productos,"Text","Value"))
+    </div>
+    <div class="form-group">
+        <label asp-for="VentaId" class="form-control">Número de Venta</label>
+        <input type="text" asp-for="InventarioId" value="@ViewBag.VentaId">
+    </div>
+    <input type="submit"/>
+</form>

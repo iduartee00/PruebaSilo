@@ -1,0 +1,40 @@
+﻿@model List<Venta>
+@{
+    ViewData["Title"] = "Proyecto de BD 'Tienda'";
+}
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Monto</th>
+            <th scope="col">Cliente</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Factura</th>
+            <th scope="col">Agregar Producto</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var venta in @Model)
+        {
+            <tr>
+                <th scope="row">@venta.VentaId</th>
+                <td>@venta.FlAmout</td>
+                <td>@ViewBag.Context.Usuarios.Find(venta.UsuarioId).VcUsrRfc</td>
+                <td>@venta.DtVenta</td>
+                <td><div>
+                    <a href="~/../Venta/Venta/@venta.VentaId">Factura</a>
+                </div></td>
+                <td><div>
+                    <a href="~/../Venta/AgregarProducto/@venta.VentaId">Agregar Producto</a>
+                </div></td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <a href="~/../Venta/NuevaVenta">Nueva Venta</a>
+</div>

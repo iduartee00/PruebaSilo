@@ -1,0 +1,19 @@
+﻿@model Inventario
+
+@{
+    ViewData["Title"] = "Proyecto de BD 'Tienda'";
+}
+
+<h2>Agregar producto al invventario</h2>
+
+<form method="POST">
+    <div class="form-group">
+        <label asp-for="ProductoId" class="form-control">Seleccione un Proveedor</label>
+        @Html.DropDownList("ProductoId",new SelectList(@ViewBag.Productos,"Text","Value"))
+    </div>
+    <div class="form-group">
+        <label asp-for="DtCaducidad" class="form-control">Fecha de caducidad</label>
+        <input type="date" asp-for="DtCaducidad">
+    </div>
+    <input type="submit"/>
+</form>

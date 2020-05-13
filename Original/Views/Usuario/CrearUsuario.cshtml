@@ -1,0 +1,27 @@
+﻿@model Usuario
+
+@{
+    ViewData["Title"] = "Proyecto de BD 'Tienda'";
+}
+
+<h2>Nuevo Usuario</h2>
+
+<form method="POST">
+    <div class="form-group">
+        <label asp-for="VcUsrRfc" class="form-control">RFC</label>
+        <input type="text" asp-for="VcUsrRfc">
+    </div>
+    <div class="form-group">
+        <label asp-for="VcUsrNombre" class="form-control">Nombre</label>
+        <input type="text" asp-for="VcUsrNombre">
+    </div>
+    <div class="form-group">
+        <label asp-for="VcUsrApellido" class="form-control">Apellido</label>
+        <input type="text" asp-for="VcUsrApellido">
+    </div>
+    <div class="form-group">
+        <label asp-for="Password" class="form-control">Contraseña</label>
+        <input type="password" asp-for="Password">
+    </div>
+    <input type="submit" value="Crear nuevo usuario"/>
+</form>

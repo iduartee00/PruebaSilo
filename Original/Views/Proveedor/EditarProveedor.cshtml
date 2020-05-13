@@ -1,0 +1,23 @@
+﻿@model Proveedor
+
+@{
+    ViewData["Title"] = "Proyecto de BD 'Tienda'";
+}
+
+<h2>Edición del Proveedor @Model.ProveedorId</h2>
+
+<form method="POST">
+    <div class="form-group">
+        <label asp-for="VcProvName" class="form-control">Nombre del Proveedor</label>
+        <input type="text" asp-for="VcProvName" value="@Model.VcProvName">
+    </div>
+    <div class="form-group">
+        <label asp-for="VcProvDesc" class="form-control">Descripción</label>
+        <input type="text" asp-for="VcProvDesc" value="@Model.VcProvDesc">
+    </div>
+    <div class="form-group">
+        <label asp-for="VcProvStatus" class="form-control">Estatus</label>
+        <input type="text" asp-for="VcProvStatus" value="@Model.VcProvStatus">
+    </div>
+    <input type="submit"/>
+</form>

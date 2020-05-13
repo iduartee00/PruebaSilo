@@ -1,0 +1,44 @@
+﻿@model List<Factura>
+@{
+    ViewData["Title"] = "Proyecto de BD 'Tienda'";
+}
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">RFC</th>
+            <th scope="col">Nombre del Cliente</th>
+            <th scope="col">Marca</th>
+            <th scope="col">Proveedor</th>
+            <th scope="col">Producto</th>
+            <th scope="col">Precio</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var factura in @Model)
+        {
+            <tr>
+                <th scope="row">@factura.VentaId</th>
+                <td>@factura.VcUsrRfc</td>
+                <td>@factura.VcUsrNombre</td>
+                <td>@factura.VcMarcaName</td>
+                <td>@factura.VcProvName</td>
+                <td>@factura.VcProdName</td>
+                <td>@factura.FlUnitAmount</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <h3>Fecha de venta @Model[0].DtVenta</h3>
+</div>
+<div>
+    <h3>Monto total @Model[0].FlAmout</h3>
+</div>
+<div>
+    <a href="~/../Venta/GenerarReportes/@Model[0].VentaId">Crear reportes PDF y XML</a>
+</div>

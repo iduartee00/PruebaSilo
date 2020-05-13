@@ -1,0 +1,32 @@
+﻿@model List<Inventario>
+@{
+    ViewData["Title"] = "Proyecto de BD 'Tienda'";
+}
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Producto</th>
+            <th scope="col">Fecha de registro</th>
+            <th scope="col">Fecha de caducidad</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var inventario in @Model)
+        {
+            <tr>
+                <th scope="row">@inventario.InventarioId</th>
+                <td>@ViewBag.Context.Productos.Find(inventario.ProductoId).VcProdName</td>
+                <td>@inventario.DtIngreso</td>
+                <td>@inventario.DtCaducidad</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <a href="~/../Inventario/Agregar">Agregar</a>
+</div>

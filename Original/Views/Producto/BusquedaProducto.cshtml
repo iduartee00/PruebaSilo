@@ -1,0 +1,42 @@
+﻿@model Producto
+@{
+    ViewData["Title"] = "Proyecto de BD 'Tienda'";
+}
+
+
+@if (@Model.ProveedorId == 0)
+{
+    <h2>No se encontró el producto</h2>
+}
+else
+{
+    <h2>Busqueda de "@Model.VcProdName"</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre del Producto</th>
+                <th scope="col">Marca</th>
+                <th scope="col">Proveedor</th>
+                <th scope="col">Precio unitario</th>
+                <th scope="col">Cantidad mayoreo</th>
+                <th scope="col">Precio mayoreo</th>
+                <th scope="col">Estatus</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">@Model.ProductoId</th>
+                <td>@Model.VcProdName</td>
+                <td>@ViewBag.Context.Marcas.Find(@ViewBag.Context.Productos.Find(@Model.ProductoId).MarcaId).VcMarcaName</td>
+                <td>@ViewBag.Context.Proveedores.Find(@ViewBag.Context.Productos.Find(@Model.ProductoId).ProveedorId).VcProvName</td>
+                <td>@Model.FlUnitAmount</td>
+                <td>@Model.IntCantLote</td>
+                <td>@Model.FlLoteAmount</td>
+                <td>@Model.VcProdStatus</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+}
